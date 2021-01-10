@@ -1,3 +1,4 @@
+"""This Mod is created by FireFighter1027#3441 with the help of Mr.Smoothy"""
 # -*- coding: utf-8 -*-
 # ba_meta require api 6
 
