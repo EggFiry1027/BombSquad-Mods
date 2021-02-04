@@ -48,26 +48,26 @@ The below codes should be added in chatCmd.py or cheatCmd.py (executes things th
 Go to YouTube and Learn what is Indendation in python if you don't know, as u need to edit the below thing's indendation.
 
     elif m == '/cd':
-    #replace the 'bsUI' if you are using a custom file for that like chatFilter.py 
-    #It must be the file name where you put the main process codes given above
-    import bsUI
-    try:
-        if a[0].lower() in ('no', 'off', 'disable'):
-            if bsUI.chatCoolDownTime:
-                bsUI.chatCoolDownTime = False
-                #commandSuccess = True #This line maybe used by you in other commands
-            else: bs.screenMessage("Wait what, why u wanna disable a thing\n which is already disabled..?", color=(1,0,0), clients=[clientID], transient=True)
-        else:
-            try:
-                if int(a[0].lower()) in range(300):
-                    bsUI.chatCoolDownTime = int(a[0])
-                    bsInternal._chatMessage("Successfully set chatCoolDown time to {} seconds :)".format(str(a[0])))
+        #replace the 'bsUI' if you are using a custom file for that like chatFilter.py 
+        #It must be the file name where you put the main process codes given above
+        import bsUI
+        try:
+            if a[0].lower() in ('no', 'off', 'disable'):
+                if bsUI.chatCoolDownTime:
+                    bsUI.chatCoolDownTime = False
                     #commandSuccess = True #This line maybe used by you in other commands
-                else: bs.screenMessage("Oof... 300 seconds is maximum cooldown, Why this much?", color=(1,1,1), clients=[clientID], transient=True)
-            except:
-                bs.screenMessage("Give an Integer as arg... you can't trick me\n Usage: '/cd CD_Time_In_Integer'", color=(1,0,0), clients=[clientID], transient=True)
-    except:
-        bs.screenMessage("Usage:\n'/cd disable/off/no' [or] '/cd CD_Time_In_Integer' for enabling...", color=(1,0,0), clients=[clientID], transient=True)
+                else: bs.screenMessage("Wait what, why u wanna disable a thing\n which is already disabled..?", color=(1,0,0), clients=[clientID], transient=True)
+            else:
+                try:
+                    if int(a[0].lower()) in range(300):
+                        bsUI.chatCoolDownTime = int(a[0])
+                        bsInternal._chatMessage("Successfully set chatCoolDown time to {} seconds :)".format(str(a[0])))
+                        #commandSuccess = True #This line maybe used by you in other commands
+                    else: bs.screenMessage("Oof... 300 seconds is maximum cooldown, Why this much?", color=(1,1,1), clients=[clientID], transient=True)
+                except:
+                    bs.screenMessage("Give an Integer as arg... you can't trick me\n Usage: '/cd CD_Time_In_Integer'", color=(1,0,0), clients=[clientID], transient=True)
+        except:
+            bs.screenMessage("Usage:\n'/cd disable/off/no' [or] '/cd CD_Time_In_Integer' for enabling...", color=(1,0,0), clients=[clientID], transient=True)
 
 
 # Credits
