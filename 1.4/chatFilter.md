@@ -33,13 +33,13 @@ The below codes should be placed in bsUI.py's filterChatMessage() function (mayb
                 name = i['players'][0]['name']
                 #Cool Down for chatting, no chance for spamming
 
-                if chatCoolDownTime:
-                    if (dis_str in chatCoolDown) and (dis_str not in white):
+                if chatCoolDownTime and dis_str not in white:
+                    if (dis_str in chatCoolDown):
                         if (time < chatCoolDown[dis_str]):
                             bal = int(chatCoolDown[dis_str] - time) / 1000
                             bs.screenMessage("Too Fast, you have {} sec coolDown...".format(str(bal)), color=(1,0,0), clients=[clientID], transient=True)
                             return None
-                        else: chatCoolDown[dis_str] = time + (chatCoolDownTime * 1000)
+                    else: chatCoolDown[dis_str] = time + (chatCoolDownTime * 1000)
         return str(msg)
 
 
