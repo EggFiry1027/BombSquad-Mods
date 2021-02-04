@@ -4,7 +4,7 @@ This mod feature can make a cool down for people to chat in your BombSquad serve
 Since i have provided white (whitelist for cooldown)... Add admins/owners, so that admins can use some useful commands like '/kick' on frikin ppl
 in server instantly.. umm server editor can make this feature to only available owners too, if needed.
 
-Note: If you don't know English or can't understand my language.. simply go to YouTube and learn English
+Note: If you don't know English or can't understand my language.. simply go to YouTube and learn English... And one main thing, please let me know if these codes have error or spelling mistake as I am not that much expert, so that i can fix it !
 
 
 # Codes of Main Process
@@ -19,6 +19,7 @@ The below codes should be placed in bsUI.py's filterChatMessage() function (mayb
         global chatCoolDownTime #in case if needed            
         ros = bsInternal._getGameRoster()
         time = int(bs.getRealTime())
+
         for i in ros:
             if (clientID != -1) and (i != {}) and (i['clientID'] == clientID):
 
@@ -31,6 +32,7 @@ The below codes should be placed in bsUI.py's filterChatMessage() function (mayb
                 dis_str = i['displayString']
                 name = i['players'][0]['name']
                 #Cool Down for chatting, no chance for spamming
+
                 if chatCoolDownTime:
                     if (dis_str in chatCoolDown) and (dis_str not in white):
                         if (time < chatCoolDown[dis_str]):
