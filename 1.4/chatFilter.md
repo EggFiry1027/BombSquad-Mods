@@ -40,7 +40,7 @@ The below codes should be placed in bsUI.py's filterChatMessage() function (mayb
                             bs.screenMessage("Too Fast, you have {} sec coolDown...".format(str(bal)), color=(1,0,0), clients=[clientID], transient=True)
                             return None
                         else: chatCoolDown[dis_str] = time + (chatCoolDownTime * 1000)
-        return string(msg)
+        return str(msg)
 
 
 # Codes for managing chatCD through commands
