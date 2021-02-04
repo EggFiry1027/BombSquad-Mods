@@ -3,6 +3,7 @@
 This mod feature can make a cool down for people to chat in your BombSquad server.
 Since i have provided white (whitelist for cooldown)... Add admins/owners, so that admins can use some useful commands like '/kick' on frikin ppl
 in server instantly.. umm server editor can make this feature to only available owners too, if needed.
+
 Note: If you don't know English or can't understand my language.. simply go to YouTube and learn English
 
 
@@ -42,8 +43,9 @@ The below codes should be placed in bsUI.py's filterChatMessage() function (mayb
 
 # Codes for managing chatCD through commands
 
-The below codes should be added in chatCmd.py oe cheatCmd.py (executes things throught chat commands)
-Go to YouTube and Learn what is Indendation in python if you don't know, as u need to edit the below thing's indendation
+The below codes should be added in chatCmd.py or cheatCmd.py (executes things throught chat commands).
+
+Go to YouTube and Learn what is Indendation in python if you don't know, as u need to edit the below thing's indendation.
 
     elif m == '/cd':
     #replace the 'bsUI' if you are using a custom file for that like chatFilter.py 
