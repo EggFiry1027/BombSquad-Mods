@@ -8,7 +8,7 @@ Note: If you don't know English or can't understand my language.. simply go to Y
 
 # Codes of Main Process
 
-#The below codes should be placed in bsUI.py's filterChatMessage() function (maybe line no. 23827 i guess) as like below...
+The below codes should be placed in bsUI.py's filterChatMessage() function (maybe line no. 23827 i guess) as like below...
 
     chatCoolDown = {}
     chatCoolDownTime = 5 #In Seconds
@@ -42,8 +42,8 @@ Note: If you don't know English or can't understand my language.. simply go to Y
 
 # Codes for managing chatCD through commands
 
-#The below codes should be added in chatCmd.py oe cheatCmd.py (executes things throught chat commands)
-#Go to YouTube and Learn what is Indendation in python if you don't know, as u need to edit the below thing's indendation
+The below codes should be added in chatCmd.py oe cheatCmd.py (executes things throught chat commands)
+Go to YouTube and Learn what is Indendation in python if you don't know, as u need to edit the below thing's indendation
 
     elif m == '/cd':
     #replace the 'bsUI' if you are using a custom file for that like chatFilter.py 
