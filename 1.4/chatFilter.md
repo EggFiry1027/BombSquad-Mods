@@ -16,31 +16,23 @@ The below codes should be placed in bsUI.py's filterChatMessage() function (mayb
     white = ['\xee\x80\xa0FireFighter1027'] #just an example on how to add..  remove my if u want...
     def _filterChatMessage(msg, clientID):
         global chatCoolDown #in case if needed
-        global chatCoolDownTime #in case if needed            
-        ros = bsInternal._getGameRoster()
+        global chatCoolDownTime #in case if needed 
         time = int(bs.getRealTime())
-
-        for i in ros:
+        for i in bsInternal._getGameRoster():
             if (clientID != -1) and (i != {}) and (i['clientID'] == clientID):
-
-                #Check if player joined the game (activity) or not [Means the one who not entered the game with Profile]
-                if (i['players'] == []) or (i['players'] is None):
-                    bs.screenMessage("Join the game first...", color=(1,0,0), clients=[clientID], transient=True)
-                    return None
-
                 #Some Useful Variables
                 dis_str = i['displayString']
                 name = i['players'][0]['name']
-                #Cool Down for chatting, no chance for spamming
-
-                if chatCoolDownTime and dis_str not in white:
-                    if (dis_str in chatCoolDown):
-                        if (time < chatCoolDown[dis_str]):
-                            bal = int(chatCoolDown[dis_str] - time) / 1000
-                            bs.screenMessage("Too Fast, you have {} sec coolDown...".format(str(bal)), color=(1,0,0), clients=[clientID], transient=True)
-                            return None
-                    else: chatCoolDown[dis_str] = time + (chatCoolDownTime * 1000)
-        return str(msg)
+                clID = i['clientID']
+                if (i['players'] == []) or (not i['players']):
+                    bs.screenMessage("Join the Game First!", color=(1,0,0), clients=[clID], transient=True)
+                    return None
+                if (dis_str not in white) and (dis_str in chatCoolDown) and (time < chatCoolDown[dis_str]):
+                    bal = int(chatCoolDown[dis_str] - time) / 1000
+                    bs.screenMessage("Too Fast, you have {} second(s) coolDown...".format(str(bal)), color=(1,0,0), clients=[clID], transient=True)
+                    return None
+                if dis_str not in chatCoolDown: chatCoolDown[dis_str] = time + (chatCoolDownTime * 1000)
+        return msg
 
 
 # Codes for managing chatCD through commands
